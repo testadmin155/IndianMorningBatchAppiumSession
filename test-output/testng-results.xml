@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-07-10T07:47:06 CEST" name="Default suite" finished-at="2023-07-10T07:47:16 CEST" duration-ms="10377">
+    <groups>
+    </groups>
+    <test started-at="2023-07-10T07:47:06 CEST" name="Default test" finished-at="2023-07-10T07:47:16 CEST" duration-ms="10377">
+      <class name="FirstProject.Appium.AppiumTest">
+        <test-method signature="AppiumTest()[pri:0, instance:FirstProject.Appium.AppiumTest@28f3b248]" started-at="2023-07-10T07:47:06 CEST" name="AppiumTest" finished-at="2023-07-10T07:47:16 CEST" duration-ms="10342" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AppiumTest -->
+      </class> <!-- FirstProject.Appium.AppiumTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
