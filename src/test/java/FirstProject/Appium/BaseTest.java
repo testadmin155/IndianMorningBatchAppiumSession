@@ -5,6 +5,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.testng.annotations.BeforeSuite;
+
+import com.google.common.collect.ImmutableMap;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.AfterSuite;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -27,12 +33,18 @@ public class BaseTest {
 		service.start();
 		
 		UiAutomator2Options options = new UiAutomator2Options();
-		options.setDeviceName("DemoAPP");
+		options.setDeviceName("Pixel 6 Pro API 34");
 		options.setApp("C:\\Users\\skane\\Documents\\IMBAppiumTraining\\Appium\\src\\test\\java\\MobileApp\\ApiDemos-debug.apk");
 		
 		driver = new AndroidDriver(new URL("http://192.168.0.9:4723"),options);
 	}
 	
+	public void longPressAction(WebElement element)
+	{
+		((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
+			    "elementId", ((RemoteWebElement) element).getId(),"duration",2000 ));
+		
+	}
 	
 	@AfterSuite
 	public void teardown() {
