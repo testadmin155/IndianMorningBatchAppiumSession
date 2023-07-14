@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="FirstProject.Appium.Swipe">
+      <class name="FirstProject.Appium.eCommerShopping">
         <methods>
-          <include name="swipeTest"/>
           <include name="teardown"/>
+          <include name="eshopping"/>
           <include name="configureAppium"/>
         </methods>
-      </class> <!-- FirstProject.Appium.Swipe -->
+      </class> <!-- FirstProject.Appium.eCommerShopping -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

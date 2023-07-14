@@ -18,7 +18,7 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
-public class BaseTest {
+public class BaseTestHybridApp {
 	
 	public AppiumDriverLocalService service;
 	public AndroidDriver driver;
@@ -34,7 +34,7 @@ public class BaseTest {
 		
 		UiAutomator2Options options = new UiAutomator2Options();
 		options.setDeviceName("Pixel 6 Pro API 34"); 
-		options.setApp("C:\\Users\\skane\\Documents\\IMBAppiumTraining\\Appium\\src\\test\\java\\MobileApp\\ApiDemos-debug.apk"); //ApiDemos-debug.apk
+		options.setApp("C:\\Users\\skane\\Documents\\IMBAppiumTraining\\Appium\\src\\test\\java\\MobileApp\\General-Store.apk");
 		
 		driver = new AndroidDriver(new URL("http://192.168.0.9:4723"),options);
 	}
