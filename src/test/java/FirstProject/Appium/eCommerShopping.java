@@ -11,7 +11,7 @@ public class eCommerShopping extends BaseTestHybridApp{
 	public void  eshopping() throws InterruptedException
 	{
 		Thread.sleep(5000);
-		driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Testing");
+		//driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Testing");
 		driver.findElement(By.id("com.androidsample.generalstore:id/radioFemale")).click();
 		
 		driver.findElement(By.id("android:id/text1")).click();
