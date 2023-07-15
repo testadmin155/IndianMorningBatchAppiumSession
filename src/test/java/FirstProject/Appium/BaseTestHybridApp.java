@@ -34,6 +34,7 @@ public class BaseTestHybridApp {
 		
 		UiAutomator2Options options = new UiAutomator2Options();
 		options.setDeviceName("Pixel 6 Pro API 34"); 
+		options.setChromedriverExecutable("C:\\Users\\skane\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		options.setApp("C:\\Users\\skane\\Documents\\IMBAppiumTraining\\Appium\\src\\test\\java\\MobileApp\\General-Store.apk");
 		
 		driver = new AndroidDriver(new URL("http://192.168.0.9:4723"),options);
