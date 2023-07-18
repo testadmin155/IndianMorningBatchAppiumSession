@@ -18,7 +18,7 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
-public class BaseTestHybridApp {
+public class BaseTestForBrowser {
 	
 	public AppiumDriverLocalService service;
 	public AndroidDriver driver;
@@ -33,10 +33,10 @@ public class BaseTestHybridApp {
 		service.start();
 		
 		UiAutomator2Options options = new UiAutomator2Options();
-		options.setDeviceName("Pixel 6 Pro API 31"); 
+		options.setDeviceName("Pixel 2 XL API 31"); 
 		options.setChromedriverExecutable("C:\\Users\\skane\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
-		options.setApp("C:\\Users\\skane\\Documents\\IMBAppiumTraining\\Appium\\src\\test\\java\\MobileApp\\General-Store.apk");
-
+		//options.setCapability("browserName", "Chrome");
+		options.noReset().withBrowserName("Chrome");
 		
 		driver = new AndroidDriver(new URL("http://192.168.0.9:4723"),options);
 	}

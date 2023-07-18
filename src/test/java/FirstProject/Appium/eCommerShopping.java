@@ -8,6 +8,10 @@ import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class eCommerShopping extends BaseTestHybridApp{
 	
@@ -42,7 +46,7 @@ public class eCommerShopping extends BaseTestHybridApp{
 			if(productname.equals("Jordan 6 Rings"))
 			{
 				driver.findElements(By.xpath("//*[@resource-id='com.androidsample.generalstore:id/productAddCart']")).get(i).click();
-				Thread.sleep(5000);
+				Thread.sleep(2000);
 				break;
 			}
 		
@@ -60,7 +64,7 @@ public class eCommerShopping extends BaseTestHybridApp{
 		System.out.println("App current context : " +currentcontext);
 		
 		driver.findElement(By.id("com.androidsample.generalstore:id/btnProceed")).click();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		
 		Set<String>contexts=driver.getContextHandles();
 		for(String contextName:contexts)
@@ -70,15 +74,34 @@ public class eCommerShopping extends BaseTestHybridApp{
 		String currentcontext1=driver.getContext();
 		System.out.println("App current context after opening webpage : " +currentcontext1);
 		
+		//script to change the focus to WebView
 		driver.context("WEBVIEW_com.androidsample.generalstore");
 		
 		String currentcontext2=driver.getContext();
 		System.out.println("App current context after changing the context : " +currentcontext2);
 		
-		//driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textMatches(\"Alles accepteren\").instance(0))")).click();
+		//683, 2677
+		
+		TouchAction x = new TouchAction(driver);
+		x.tap(PointOption.point(683, 2677)).perform();
+		x.tap(PointOption.point(700, 2230)).perform();
+		
 		Thread.sleep(5000);
-		//driver.findElement(By.id("L2AGLb")).click();
-		driver.findElement(By.id("com.android.chrome:id/search_box_text")).sendKeys("Testing");
+		driver.findElement(By.name("q")).sendKeys("Automation Testing");
+		driver.pressKey(new KeyEvent (AndroidKey.ENTER));
+		Thread.sleep(5000);
+		driver.pressKey(new KeyEvent (AndroidKey.BACK));
+		
+		//script to change the focus to Native App
+		Thread.sleep(5000);
+		driver.context("NATIVE_APP");
+		driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+		//to get text of the toast message
+		String toastmessage1=driver.findElement(By.xpath("/hierarchy/android.widget.Toast[1]")).getAttribute("text");
+		System.out.println(toastmessage1);
+		Assert.assertEquals(toastmessage1, "Please enter your name");
+		
+		
 		
 	}
 
